@@ -26,6 +26,7 @@ public class GenericUse {
         System.out.println("stack.get(0) = " + stack.get(0));
     }
 
+    // method
     public static <T> void arrayToStack(T[] arr, Stack<T> stack) {
         stack.addAll(Arrays.asList(arr));
     }

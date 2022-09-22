@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 
 import static com.gilbert.modern.BehaviorParameterization.BehaviorParameterization.Color.GREEN;
 import static com.gilbert.modern.BehaviorParameterization.BehaviorParameterization.Color.RED;
@@ -80,7 +81,7 @@ public class BehaviorParameterization {
         List<Apple> resultLambda = filterApples(inventory, (Apple apple) -> RED.toString().equals(apple.getColor()));
         System.out.println("resultLambda.getColor() = " + resultLambda.get(0).getColor());
 
-        // Abstraction by List
+        // abstraction by list
         List<Apple> redApplesListPredicate = filter(inventory, (Apple apple) -> RED.toString().equals(apple.getColor()));
         System.out.println("redApplesListPredicate = " + redApplesListPredicate.get(0).getColor());
 
@@ -91,7 +92,7 @@ public class BehaviorParameterization {
 
     }
 
-    /* List Predicate*/
+    /* list predicate*/
     public static <T> List<T> filter(List<T> list, ListPredicate<T> predicate) {
         List<T> result = new ArrayList<>();
         for (T e : list) {
