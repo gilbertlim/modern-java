@@ -1,7 +1,5 @@
 package com.gilbert.modern.BehaviorParameterization;
 
-import org.springframework.boot.context.event.ApplicationStartedEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -81,7 +79,29 @@ public class BehaviorParameterization {
         
         List<Apple> resultLambda = filterApples(inventory, (Apple apple) -> RED.toString().equals(apple.getColor()));
         System.out.println("resultLambda.getColor() = " + resultLambda.get(0).getColor());
+
+        // Abstraction by List
+        List<Apple> redApplesListPredicate = filter(inventory, (Apple apple) -> RED.toString().equals(apple.getColor()));
+        System.out.println("redApplesListPredicate = " + redApplesListPredicate.get(0).getColor());
+
+        List<Integer> numbers = Arrays.asList(1, 20, 3);
+
+        List<Integer> evenNumbers = filter(numbers, (Integer i) -> i % 2 == 0);
+        System.out.println("evenNumbers.get(0) = " + evenNumbers.get(0));
+
     }
+
+    /* List Predicate*/
+    public static <T> List<T> filter(List<T> list, ListPredicate<T> predicate) {
+        List<T> result = new ArrayList<>();
+        for (T e : list) {
+            if (predicate.test(e)) {
+                result.add(e);
+            }
+        }
+        return result;
+    }
+
 
     /*
     * formatter
@@ -94,28 +114,10 @@ public class BehaviorParameterization {
         }
     }
 
-    public static class AppleFancyFormatter implements AppleFormatter {
-        @Override
-        public String accept(Apple apple) {
-            String characteristic = apple.getWeight() > 150 ? "heavy" : "light";
-
-            return "A " + characteristic + " " + apple.getColor() + " apple";
-        }
-    }
-
 
     /*
     * color and weight
     * * */
-
-    public static class AppleRedAndHeavyPredicate implements ApplePredicate {
-
-        @Override
-        public boolean test(Apple apple) {
-            return RED.toString().equals(apple.getColor())
-            && apple.getWeight() > 110;
-        }
-    }
 
     public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate p) {
         List<Apple> result = new ArrayList<>();
