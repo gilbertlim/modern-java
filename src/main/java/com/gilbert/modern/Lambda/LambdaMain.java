@@ -1,8 +1,14 @@
 package com.gilbert.modern.Lambda;
 
-public class Main {
+import org.springframework.boot.context.event.ApplicationStartedEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
 
-    public static void main() {
+@Component
+public class LambdaMain {
+
+    @EventListener(ApplicationStartedEvent.class)
+    public void main() {
         Goods com = new Computer();
         com.doSome();
 
@@ -43,7 +49,6 @@ public class Main {
         // 매개변수 -> ;
         CalculatorParamOne cal8 = num1 -> System.out.println("cal8.cal(num1) = " + num1);
         cal8.cal(1);
-
     }
 
 }

@@ -1,5 +1,7 @@
 package com.gilbert.modern.BehaviorParameterization;
 
+import org.springframework.boot.context.event.ApplicationStartedEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -20,8 +22,8 @@ public class BehaviorParameterization {
 
     enum Color { RED, GREEN }
 
-    // @EventListener(ApplicationStartedEvent.class)
-    public static void filterApples() {
+    @EventListener(ApplicationStartedEvent.class)
+    public void filterApples() {
         List<Apple> inventory = new ArrayList<>(Arrays.asList(
                 new Apple(80, "GREEN"),
                 new Apple(155, "GREEN"),
@@ -80,6 +82,7 @@ public class BehaviorParameterization {
         
         List<Apple> resultLambda = filterApples(inventory, (Apple apple) -> RED.toString().equals(apple.getColor()));
         System.out.println("resultLambda.getColor() = " + resultLambda.get(0).getColor());
+
 
         // abstraction by list
         List<Apple> redApplesListPredicate = filter(inventory, (Apple apple) -> RED.toString().equals(apple.getColor()));

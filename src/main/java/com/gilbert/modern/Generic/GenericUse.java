@@ -1,12 +1,18 @@
 package com.gilbert.modern.Generic;
 
 
+import org.springframework.boot.context.event.ApplicationStartedEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
+
 import java.util.Arrays;
 import java.util.Stack;
 
+@Component
 public class GenericUse {
 
-    public static void use() {
+    @EventListener(ApplicationStartedEvent.class)
+    public void use() {
 
         // class
         GenericClass<String> stringObj = new GenericClass<>("abc");
