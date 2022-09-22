@@ -3,6 +3,7 @@ package com.gilbert.modern;
 import com.gilbert.modern.BehaviorParameterization.BehaviorParameterization;
 import com.gilbert.modern.Etc.FindFile;
 import com.gilbert.modern.Etc.MeaningOfThis;
+import com.gilbert.modern.Generic.GenericUse;
 import com.gilbert.modern.Lambda.Main;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -32,6 +33,8 @@ public class ModernApplication {
 		MeaningOfThis meaningOfThis = new MeaningOfThis();
 		meaningOfThis.doIt();
 
+		// Generic
+		GenericUse.use();
 	}
 
 
