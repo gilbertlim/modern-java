@@ -1,4 +1,6 @@
-package com.gilbert.modern.BehaviorParameterization;
+package com.gilbert.modern.BehaviorParameterization.Vanilla;
+
+import com.gilbert.modern.BehaviorParameterization.Apple;
 
 public class AppleFancyFormatter implements AppleFormatter {
     @Override

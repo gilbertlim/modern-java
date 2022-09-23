@@ -9,6 +9,8 @@ public class LambdaMain {
 
     @EventListener(ApplicationStartedEvent.class)
     public void main() {
+        System.out.println("===== Lambda / Expressions =====");
+
         Goods com = new Computer();
         com.doSome();
 

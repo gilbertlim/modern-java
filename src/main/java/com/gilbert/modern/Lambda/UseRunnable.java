@@ -20,6 +20,8 @@ public class UseRunnable {
 
     @EventListener(ApplicationStartedEvent.class)
     public void main() {
+        System.out.println("===== Lambda / Runnable =====");
+
         process(r1);
         process(r2);
         process(() -> {System.out.println("Hello World 3");});

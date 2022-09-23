@@ -13,6 +13,7 @@ public class GenericUse {
 
     @EventListener(ApplicationStartedEvent.class)
     public void use() {
+        System.out.println("=====Generic=====");
 
         // class
         GenericClass<String> stringObj = new GenericClass<>("abc");
