@@ -3,12 +3,14 @@ package com.gilbert.modern.MapStruct;
 import com.gilbert.modern.MapStruct.Order.OrderBuilder;
 import com.gilbert.modern.MapStruct.OrderDto.OrderDtoBuilder;
 import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-09-29T15:28:53+0900",
+    date = "2022-09-29T18:13:34+0900",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 17.0.4.1 (Amazon.com Inc.)"
 )
+@Component
 public class OrderMapperImpl implements OrderMapper {
 
     @Override

@@ -1,11 +1,9 @@
 package com.gilbert.modern.MapStruct;
 
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
-@AllArgsConstructor
 @Builder
 @Getter
 class OrderDto {
