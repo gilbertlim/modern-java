@@ -1,23 +1,24 @@
 package com.gilbert.modern.FunctionalInterface.Consumer;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Consumer;
-
+@Slf4j
 @Component
 public class UseConsumer {
 
     @EventListener(ApplicationStartedEvent.class)
     public void main() {
-        System.out.println("===== Functional Interface / Lambda =====");
+        log.info("===== Functional Interface / Lambda =====");
 
         forEach(
-                Arrays.asList(1, 2, 3, 4, 5),
-                System.out::println
+            Arrays.asList(1, 2, 3, 4, 5),
+            x -> log.debug(x.toString())
         );
 
     }

@@ -1,14 +1,15 @@
 package com.gilbert.modern.ExecuteAroundPattern;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
+@Slf4j
 @Component
 public class BufferedReaderMain {
 
@@ -16,10 +17,10 @@ public class BufferedReaderMain {
 
     @EventListener(ApplicationStartedEvent.class)
     public void main() throws IOException {
-        System.out.println("===== ExecuteAroundPattern / Lambda =====");
+        log.info("===== ExecuteAroundPattern / Lambda =====");
         String twoLines = processFile((BufferedReader br) -> br.readLine() + " " + br.readLine());
 
-        System.out.println("twoLines = " + twoLines);
+        log.debug("twoLines = " + twoLines);
 
     }
 

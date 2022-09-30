@@ -1,8 +1,12 @@
 package com.gilbert.modern.Lambda;
 
-public class Computer implements Goods{
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+public class Computer implements Goods {
+
     @Override
     public void doSome() {
-        System.out.println("do Operation!");
+        log.debug("do Operation!");
     }
 }
