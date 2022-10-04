@@ -7,7 +7,6 @@ public abstract class Predator extends Animal implements Barkable {
     abstract String getFood();
 
     void printFood() {
-        System.out.println();
     }
 
     // 추상 클래스에서 상수는 static을 붙여야 함.
