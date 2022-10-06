@@ -1,6 +1,7 @@
 package com.gilbert.modern.Stream.Practice;
 
 import java.util.List;
+import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.event.EventListener;
@@ -48,6 +49,32 @@ public class Answers {
         if (transactions.stream().anyMatch(t -> t.getTrader().getCity().equals("Milan"))) {
             log.debug("result5 = Milan에 거래자가 있습니다.");
         }
+
+        List<Integer> result6 = transactions.stream()
+            .filter(t -> t.getTrader().getCity().equals("Cambridge"))
+            .map(Transaction::getValue)
+            .toList();
+        result6.forEach(r -> log.debug("r = {}", r.toString()));
+
+        Optional<Integer> result7 = transactions.stream()
+            .map(Transaction::getValue)
+            .reduce(Integer::max);
+        log.debug("max = {}", result7);
+
+        // .max()
+        Optional<Transaction> result7t1 = transactions.stream()
+            .max(comparing(Transaction::getValue));
+        log.debug("min = {}", result7t1);
+
+        Optional<Integer> result8 = transactions.stream()
+            .map(Transaction::getValue)
+            .reduce(Integer::min);
+        log.debug("min = {}", result8);
+
+        // .min()
+        Optional<Transaction> result8t1 = transactions.stream()
+            .min(comparing(Transaction::getValue));
+        log.debug("min = {}", result8t1);
 
 
     }
